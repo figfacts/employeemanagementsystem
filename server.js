@@ -1,8 +1,8 @@
 // dependencies
 const figlet = require('figlet');                 // Used to display the intro 'EMS' screen
-const consoleTable = require('console.table');   // Used for output 
+const consoleTable = require('console.table');   // Used for output to print MySQL rows to the console
 const dotEnv = require('dotenv').config();      // Used for dotenv file
-const inquirer = require('inquirer');          // Used for npm prompts
+const inquirer = require('inquirer');          // Used for npm prompts interact with the user via the command-line
 const mysql = require('mysql');               // Used to access MySQL database
 
 // Creates the connection to the mySQL Database "employees"
@@ -259,7 +259,7 @@ function viewAllRoles() {
         });
     menu();
 }
-
+//Remove/Delete an employee
 function removeEmployee() {
     connection.query("SELECT id, concat(first_name, ' ', last_name) fullName FROM employee",
         function (err, res) {
